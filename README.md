@@ -1,24 +1,107 @@
-# Time Series Econometric Analysis of India's CPI and Inflation (2013-2025)
+# Time Series Econometric Analysis of India's CPI and Inflation (2013–2025)
 
 ## Overview
-[cite_start]This project explores the time-dependent behavior of India's Consumer Price Index (CPI) and inflation rate to understand long-term price stability, forecast future trends, and identify structural shifts caused by economic policies and global events[cite: 328, 329]. 
+This project explores the time-dependent behavior of India’s Consumer Price Index (CPI) and inflation rate to understand long-term price stability, forecast future trends, and identify structural shifts caused by economic policies and global events.
 
-[cite_start]**Author:** Naman Khatwani [cite: 317]
+---
 
 ## Data & Methodology
-* [cite_start]**Dataset:** All-India Combined CPI and YoY inflation rate (Base 2012=100) from the Ministry of Statistics and Programme Implementation (MoSPI) covering January 2013 to August 2025[cite: 346, 347, 348].
-* [cite_start]**Stationarity Testing:** Conducted Augmented Dickey-Fuller (ADF) and Phillips-Perron (PP) tests to determine the integration order[cite: 379, 380].
-* [cite_start]**Time-Series Forecasting:** Applied Seasonal ARIMA (SARIMA) modeling (via `auto.arima()` in R) to capture trend and seasonality[cite: 386, 387, 397].
-* [cite_start]**Structural Break Detection:** Utilized the Bai-Perron multiple structural breakpoint test to identify regime shifts in the inflation process[cite: 400, 401].
+
+### Dataset
+- **Source:** Ministry of Statistics and Programme Implementation (MoSPI)
+- **Coverage:** January 2013 – August 2025
+- **Variables Used:**
+  - All-India Combined CPI (Base Year: 2012 = 100)
+  - Year-on-Year (YoY) Inflation Rate
+
+### Econometric Techniques
+
+#### 1. Stationarity Testing
+To determine the order of integration and verify whether the series are stationary, the following tests were conducted:
+- Augmented Dickey-Fuller (ADF) Test
+- Phillips-Perron (PP) Test
+
+#### 2. Time Series Forecasting
+Seasonal ARIMA (SARIMA) modeling was applied using `auto.arima()` in R to capture:
+- Trend behavior
+- Seasonal effects
+- Short-run dynamics in CPI movements
+
+#### 3. Structural Break Analysis
+The Bai-Perron Multiple Structural Breakpoint Test was used to identify significant regime shifts in the inflation process over time.
+
+---
 
 ## Key Findings
-* [cite_start]**Stationarity:** The CPI index is a non-stationary, integrated process (I(1)) following an upward trend, whereas the first-differenced inflation rate is roughly stationary (I(0))[cite: 568, 768, 769].
-* [cite_start]**Predictive Modeling:** The best fit model, SARIMA(2,1,0)(0,1,1)[12], successfully captured annual seasonal effects and forecasts a stable, moderate increase in the CPI over the next 12 months[cite: 635, 771, 773]. 
-* [cite_start]**Regime Shifts:** The Bai-Perron test identified three major structural breaks in the inflation rate corresponding to significant macroeconomic shocks[cite: 658, 659, 660]:
-    * [cite_start]**2016:** Demonetization and GST implementation[cite: 659, 776].
-    * [cite_start]**2020:** Supply shocks and volatility from the COVID-19 pandemic[cite: 660, 777].
-    * [cite_start]**2023:** The global commodity correction phase[cite: 660, 778].
+
+### Stationarity Results
+- The CPI index was found to be **non-stationary** and integrated of order one, i.e., **I(1)**.
+- The first-differenced inflation series was approximately **stationary**, i.e., **I(0)**.
+
+### Forecasting Results
+- The best-performing model was:
+  
+  `SARIMA(2,1,0)(0,1,1)[12]`
+
+- The model effectively captured annual seasonality in the CPI series.
+- Forecasts indicate a stable and moderate rise in CPI over the next 12 months.
+
+### Structural Breaks Identified
+The Bai-Perron test detected three major structural breaks corresponding to significant macroeconomic events:
+
+#### 2016
+- Demonetization
+- GST implementation
+
+#### 2020
+- COVID-19 pandemic
+- Supply chain disruptions and inflation volatility
+
+#### 2023
+- Global commodity price correction phase
+
+---
 
 ## Repository Contents
-* `[Insert R Script Name].R` - R script containing data preprocessing, ADF/PP tests, SARIMA model building, and Bai-Perron test execution.
-* [cite_start]`ED405 TSE REPORT.pdf` - Comprehensive project report detailing the theoretical framework, statistical outputs, and macroeconomic interpretations[cite: 315].
+
+- `main_analysis.R`  
+  R script containing:
+  - Data preprocessing
+  - ADF and PP stationarity tests
+  - SARIMA model estimation
+  - Forecast generation
+  - Bai-Perron structural break analysis
+
+- `REPORT_TIME SERIES.pdf`  
+  Detailed project report including:
+  - Theoretical framework
+  - Statistical methodology
+  - Model outputs
+  - Interpretation of macroeconomic implications
+
+---
+
+## Tools & Libraries Used
+
+### Programming Language
+- R
+
+### Major Packages
+- `forecast`
+- `tseries`
+- `urca`
+- `strucchange`
+- `ggplot2`
+
+---
+
+## Objectives of the Study
+- Analyze the long-run behavior of India’s CPI and inflation dynamics
+- Examine stationarity and persistence in inflation data
+- Forecast future CPI movements using econometric models
+- Detect structural shifts associated with policy changes and economic shocks
+
+---
+
+## Conclusion
+The study highlights the importance of econometric time-series methods in understanding inflation dynamics in India. The results show that CPI exhibits strong persistence and seasonality, while inflation undergoes distinct regime shifts during major economic events. The SARIMA framework provides reliable short-term forecasting performance, and structural break analysis helps identify critical transitions in the inflationary environment.
